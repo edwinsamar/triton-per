@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "triton-per"
+version = "0.1.0"
+description = "Fused prioritized experience replay sampling in OpenAI Triton"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.4",
+    "numpy",
+]
+
+[project.optional-dependencies]
+# triton ships with torch CUDA wheels on Linux; listed for explicitness
+gpu = ["triton>=3.0"]
+dev = ["pytest", "scipy", "pandas"]
+rl = ["torchrl>=0.6", "gymnasium[mujoco]", "tensordict"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,67 @@
+tree: /scratch/work/[redacted]/triton-per-v010/src/triton_per/__init__.py
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-9.0.2, pluggy-1.6.0 -- /appl/scibuilder-mamba/aalto-rhel9/prod/software/scicomp-pytorch-env/2026.1/354b404/bin/python
+cachedir: .pytest_cache
+rootdir: /scratch/work/[redacted]/triton-per-v010
+configfile: pyproject.toml
+plugins: jaxtyping-0.3.7, anyio-4.12.1, nbval-0.11.0
+collecting ... collected 31 items
+
+tests/test_stress.py::test_priorities_spanning_orders_of_magnitude[torch-cpu] STRESS magnitude torch/cpu: p=0.9667 tv=0.0097
+PASSED
+tests/test_stress.py::test_priorities_spanning_orders_of_magnitude[torch-cuda] STRESS magnitude torch/cuda: p=0.723 tv=0.0094
+XFAIL
+tests/test_stress.py::test_priorities_spanning_orders_of_magnitude[triton-cuda] STRESS magnitude triton/cuda: p=0.9965 tv=0.0090
+PASSED
+tests/test_stress.py::test_priorities_spanning_orders_of_magnitude[triton-unfused-cuda] STRESS magnitude triton-unfused/cuda: p=0.7339 tv=0.0096
+PASSED
+tests/test_stress.py::test_adversarial_block_ordering[triton-cuda] STRESS blockorder analytic: two-level lost mass 1.99e-06, naive full-length 2.00e-03
+STRESS blockorder triton/cuda: block-level p=0.5199
+PASSED
+tests/test_stress.py::test_adversarial_block_ordering[triton-unfused-cuda] STRESS blockorder analytic: two-level lost mass 1.99e-06, naive full-length 2.00e-03
+STRESS blockorder triton-unfused/cuda: block-level p=0.3276
+PASSED
+tests/test_stress.py::test_zero_priorities_eps_floor[torch-cpu] PASSED
+tests/test_stress.py::test_zero_priorities_eps_floor[torch-cuda] PASSED
+tests/test_stress.py::test_zero_priorities_eps_floor[triton-cuda] PASSED
+tests/test_stress.py::test_zero_priorities_eps_floor[triton-unfused-cuda] PASSED
+tests/test_stress.py::test_non_power_of_two_capacity[torch-cpu] STRESS non-pow2 torch/cpu: p=0.2662
+PASSED
+tests/test_stress.py::test_non_power_of_two_capacity[torch-cuda] STRESS non-pow2 torch/cuda: p=0.1270
+PASSED
+tests/test_stress.py::test_non_power_of_two_capacity[triton-cuda] STRESS non-pow2 triton/cuda: p=0.5698
+PASSED
+tests/test_stress.py::test_non_power_of_two_capacity[triton-unfused-cuda] STRESS non-pow2 triton-unfused/cuda: p=0.9782
+PASSED
+tests/test_stress.py::test_wraparound_with_nonuniform_priorities[torch-cpu] STRESS wraparound torch/cpu: p=0.5927
+PASSED
+tests/test_stress.py::test_wraparound_with_nonuniform_priorities[torch-cuda] STRESS wraparound torch/cuda: p=0.8438
+PASSED
+tests/test_stress.py::test_wraparound_with_nonuniform_priorities[triton-cuda] STRESS wraparound triton/cuda: p=0.2384
+PASSED
+tests/test_stress.py::test_wraparound_with_nonuniform_priorities[triton-unfused-cuda] STRESS wraparound triton-unfused/cuda: p=0.9233
+PASSED
+tests/test_stress.py::test_divergent_duplicate_updates[torch-cpu] PASSED
+tests/test_stress.py::test_divergent_duplicate_updates[torch-cuda] PASSED
+tests/test_stress.py::test_divergent_duplicate_updates[triton-cuda] PASSED
+tests/test_stress.py::test_divergent_duplicate_updates[triton-unfused-cuda] PASSED
+tests/test_stress.py::test_long_run_drift_beyond_refresh[torch-cpu] STRESS drift torch/cpu: max rel block-sum err 1.15e-07
+PASSED
+tests/test_stress.py::test_long_run_drift_beyond_refresh[torch-cuda] STRESS drift torch/cuda: max rel block-sum err 4.11e-08
+PASSED
+tests/test_stress.py::test_long_run_drift_beyond_refresh[triton-cuda] STRESS drift triton/cuda: max rel block-sum err 3.49e-06
+PASSED
+tests/test_stress.py::test_long_run_drift_beyond_refresh[triton-unfused-cuda] STRESS drift triton-unfused/cuda: max rel block-sum err 3.49e-06
+PASSED
+tests/test_stress.py::test_boundary_concentrated_mass[torch-cpu] STRESS boundary torch/cpu: max hot-slot rel dev 0.006
+PASSED
+tests/test_stress.py::test_boundary_concentrated_mass[torch-cuda] STRESS boundary torch/cuda: max hot-slot rel dev 0.003
+PASSED
+tests/test_stress.py::test_boundary_concentrated_mass[triton-cuda] STRESS boundary triton/cuda: max hot-slot rel dev 0.007
+PASSED
+tests/test_stress.py::test_boundary_concentrated_mass[triton-unfused-cuda] STRESS boundary triton-unfused/cuda: max hot-slot rel dev 0.007
+PASSED
+tests/test_stress.py::test_peak_memory_at_full_scale STRESS memory: peak 21.13 GB (storage analytic 20.88 GB)
+PASSED
+
+======================== 30 passed, 1 xfailed in 10.81s ========================

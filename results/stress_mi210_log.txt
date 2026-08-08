@@ -1,0 +1,66 @@
+tree: /scratch/work/[redacted]/triton-per-v010/src/triton_per/__init__.py
+============================= test session starts ==============================
+platform linux -- Python 3.12.11, pytest-9.1.1, pluggy-1.6.0 -- /scratch/work/[redacted]/venvs/rocm-torch/bin/python
+cachedir: .pytest_cache
+rootdir: /scratch/work/[redacted]/triton-per-v010
+configfile: pyproject.toml
+collecting ... collected 31 items
+
+tests/test_stress.py::test_priorities_spanning_orders_of_magnitude[torch-cpu] STRESS magnitude torch/cpu: p=0.6911 tv=0.0095
+PASSED
+tests/test_stress.py::test_priorities_spanning_orders_of_magnitude[torch-cuda] STRESS magnitude torch/cuda: p=0.1343 tv=0.0101
+XFAIL
+tests/test_stress.py::test_priorities_spanning_orders_of_magnitude[triton-cuda] STRESS magnitude triton/cuda: p=0.3013 tv=0.0099
+PASSED
+tests/test_stress.py::test_priorities_spanning_orders_of_magnitude[triton-unfused-cuda] STRESS magnitude triton-unfused/cuda: p=0.1045 tv=0.0100
+PASSED
+tests/test_stress.py::test_adversarial_block_ordering[triton-cuda] STRESS blockorder analytic: two-level lost mass 1.99e-06, naive full-length 2.00e-03
+STRESS blockorder triton/cuda: block-level p=0.9561
+PASSED
+tests/test_stress.py::test_adversarial_block_ordering[triton-unfused-cuda] STRESS blockorder analytic: two-level lost mass 1.99e-06, naive full-length 2.00e-03
+STRESS blockorder triton-unfused/cuda: block-level p=0.3018
+PASSED
+tests/test_stress.py::test_zero_priorities_eps_floor[torch-cpu] PASSED
+tests/test_stress.py::test_zero_priorities_eps_floor[torch-cuda] PASSED
+tests/test_stress.py::test_zero_priorities_eps_floor[triton-cuda] PASSED
+tests/test_stress.py::test_zero_priorities_eps_floor[triton-unfused-cuda] PASSED
+tests/test_stress.py::test_non_power_of_two_capacity[torch-cpu] STRESS non-pow2 torch/cpu: p=0.9841
+PASSED
+tests/test_stress.py::test_non_power_of_two_capacity[torch-cuda] STRESS non-pow2 torch/cuda: p=0.4708
+PASSED
+tests/test_stress.py::test_non_power_of_two_capacity[triton-cuda] STRESS non-pow2 triton/cuda: p=0.5735
+PASSED
+tests/test_stress.py::test_non_power_of_two_capacity[triton-unfused-cuda] STRESS non-pow2 triton-unfused/cuda: p=0.2852
+PASSED
+tests/test_stress.py::test_wraparound_with_nonuniform_priorities[torch-cpu] STRESS wraparound torch/cpu: p=0.3176
+PASSED
+tests/test_stress.py::test_wraparound_with_nonuniform_priorities[torch-cuda] STRESS wraparound torch/cuda: p=0.5938
+PASSED
+tests/test_stress.py::test_wraparound_with_nonuniform_priorities[triton-cuda] STRESS wraparound triton/cuda: p=0.3735
+PASSED
+tests/test_stress.py::test_wraparound_with_nonuniform_priorities[triton-unfused-cuda] STRESS wraparound triton-unfused/cuda: p=0.2349
+PASSED
+tests/test_stress.py::test_divergent_duplicate_updates[torch-cpu] PASSED
+tests/test_stress.py::test_divergent_duplicate_updates[torch-cuda] PASSED
+tests/test_stress.py::test_divergent_duplicate_updates[triton-cuda] PASSED
+tests/test_stress.py::test_divergent_duplicate_updates[triton-unfused-cuda] PASSED
+tests/test_stress.py::test_long_run_drift_beyond_refresh[torch-cpu] STRESS drift torch/cpu: max rel block-sum err 1.15e-07
+PASSED
+tests/test_stress.py::test_long_run_drift_beyond_refresh[torch-cuda] STRESS drift torch/cuda: max rel block-sum err 6.37e-08
+PASSED
+tests/test_stress.py::test_long_run_drift_beyond_refresh[triton-cuda] STRESS drift triton/cuda: max rel block-sum err 3.35e-06
+PASSED
+tests/test_stress.py::test_long_run_drift_beyond_refresh[triton-unfused-cuda] STRESS drift triton-unfused/cuda: max rel block-sum err 3.73e-06
+PASSED
+tests/test_stress.py::test_boundary_concentrated_mass[torch-cpu] STRESS boundary torch/cpu: max hot-slot rel dev 0.005
+PASSED
+tests/test_stress.py::test_boundary_concentrated_mass[torch-cuda] STRESS boundary torch/cuda: max hot-slot rel dev 0.011
+PASSED
+tests/test_stress.py::test_boundary_concentrated_mass[triton-cuda] STRESS boundary triton/cuda: max hot-slot rel dev 0.009
+PASSED
+tests/test_stress.py::test_boundary_concentrated_mass[triton-unfused-cuda] STRESS boundary triton-unfused/cuda: max hot-slot rel dev 0.005
+PASSED
+tests/test_stress.py::test_peak_memory_at_full_scale STRESS memory: peak 21.13 GB (storage analytic 20.88 GB)
+PASSED
+
+======================== 30 passed, 1 xfailed in 26.57s ========================
