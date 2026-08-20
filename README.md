@@ -5,8 +5,10 @@ gather, and importance-sampling weights run in one fused Triton kernel**,
 eliminating the CPU sum-tree round trip that stalls high update-to-data (UTD)
 off-policy RL training.
 
-> **Paper artifact:** all numbers reported in the accompanying paper were
-> produced with the code released as [`v0.1.0`](../../releases/tag/v0.1.0).
+> **Paper artifact:** all numbers reported in the accompanying paper,
+> *Fused GPU Sampling for Prioritized Replay: Removing the Bottleneck in
+> High-UTD Reinforcement Learning* (under review), were produced with the
+> code released as [`v0.1.0`](../../releases/tag/v0.1.0).
 
 ## Design
 
